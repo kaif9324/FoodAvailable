@@ -119,17 +119,7 @@ router.delete('/:id', async (req, resp) => {
   try {
     const deleteID = req.params.id;
 
-    // Fetch the existing food item
-    const existingFood = await food_schema.findById(deleteID);
-    if (!existingFood) {
-      return resp.status(404).json({ error: 'Food item not found' });
-    }
-
-    // Delete the image file from the server
-    const imagePath = `upload/${existingFood.image}`;
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
-    }
+ 
 
     // Delete the food item from the database
     const response = await food_schema.findByIdAndDelete(deleteID);

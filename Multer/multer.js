@@ -1,13 +1,13 @@
-const multer = require('multer');
+const multer = require('multer');  // Import multer
 
-const path = require('path');
-const storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,'upload/')
+const path = require('path');  // Import path module
+const storage = multer.diskStorage({  // Set disk storage
+    destination:(req,file,cb)=>{  // Set destination folder
+        cb(null,'upload/')  // Files stored in 'upload/' folder
     },
-    filename:(req,file,cb)=>{
-        cb(null,Date.now() + path.extname(file.originalname) )
+    filename:(req,file,cb)=>{  // Set filename format
+        cb(null,Date.now() + path.extname(file.originalname) )  // Add timestamp and extension
     }
 })
-const upload = multer({storage});
-module.exports = upload;
+const upload = multer({storage});  // Configure multer with storage settings
+module.exports = upload;  // Export upload configuration
