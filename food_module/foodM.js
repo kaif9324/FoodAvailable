@@ -2,16 +2,12 @@ const mongoose = require('mongoose');
 const foodSchema = mongoose.Schema({
     image:{
         type:String,
-        required:true
     },
     name:{
         type:String,
         required:true
     },
-    desc:{
-        type:String,
-        required:true
-    },
+  
     price:{
         type:String,
         require:true
