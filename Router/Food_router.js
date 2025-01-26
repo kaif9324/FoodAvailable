@@ -119,8 +119,6 @@ router.delete('/:id', async (req, resp) => {
   try {
     const deleteID = req.params.id;
 
- 
-
     // Delete the food item from the database
     const response = await food_schema.findByIdAndDelete(deleteID);
     if (!response) {

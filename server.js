@@ -1,10 +1,15 @@
 const express = require('express')
+require('dotenv').config();
 const db = require('./database/db') // connect to database
 const food_Schema = require('./food_module/foodM') // import schema
 const app = express();
 const foodrouter = require('./Router/Food_router')
 
+
 const cores  = require('cors')
+// Allow CORS for your frontend's origin
+// Allow CORS for your frontend's origin
+
 app.use(cores())
 
 // Serve static files from the "upload" folder
@@ -22,4 +27,6 @@ app.use('/food',foodrouter)
 app.get('/',(req,resp)=>{
     resp.send('its running ')
 })
-app.listen(5000)
+const port = process.env.PORT  || 5000
+
+app.listen(port)
